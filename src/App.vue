@@ -1,30 +1,36 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { useTabStore } from './store/store';
+import { useRouter } from 'vue-router';
+
+const store = useTabStore();
+const router = useRouter();
+
+function changeTab(tab) {
+  store.setActiveTab(tab);
+  router.push(`/${tab}`);
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="container mx-auto p-4">
+    <nav class="flex space-x-4 mb-4">
+      <button 
+        v-for="tab in ['tab1', 'tab2']" 
+        :key="tab" 
+        @click="changeTab(tab)" 
+        :class="['px-4 py-2 rounded', store.activeTab === tab ? 'bg-blue-500 text-white' : 'bg-gray-200']">
+        {{ tab.toUpperCase() }}
+      </button>
+    </nav>
+
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+<style>
+.container {
+  max-width: 600px;
 }
 </style>
