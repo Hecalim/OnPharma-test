@@ -4,10 +4,12 @@ import { defineStore } from 'pinia';
 export const useTabStore = defineStore('tabStore', {
   state: () => ({
     activeTab: 'tab1',
-    scrollPositions: { tab1: 0, tab2: 0 },
+    scrollPositions: { tab1: 0, tab2: 0, tab3: 0, tab4: 0 },
     formData: {
       tab1: { name: '', email: '' },
-      tab2: { address: '', phone: '' }
+      tab2: { address: '', phone: '' },
+      tab3: { address: '', phone: ''},
+      tab4: { address: '', phone: ''}
     }
   }),
   actions: {
