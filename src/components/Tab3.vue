@@ -13,7 +13,7 @@ const store = useTabStore();
       Enable notifications
     </span>
     <label class="switch">
-      <input type="checkbox" name="switch" id="switch">
+      <input type="checkbox" name="switch" id="switch" v-model="store.formData.tab3.checkbox">
       <span></span>
     </label>
   </div>

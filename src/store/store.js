@@ -8,7 +8,7 @@ export const useTabStore = defineStore('tabStore', {
     formData: {
       tab1: { },
       tab2: { },
-      tab3: { },
+      tab3: { checkbox: false},
       tab4: { firstname: '', lastname: '', email: '', phone: '', contractName:''}
     }
   }),

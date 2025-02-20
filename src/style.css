@@ -102,6 +102,16 @@ h1 {
   line-height: 1.1;
 }
 
+.btn{
+  @apply w-[40px] aspect-square bg-gray-900 border border-gray-800 rounded-full;
+  &:hover{
+    @apply bg-gray-600 border-gray-500;
+  }
+  &:active{
+    @apply bg-gray-900 border-gray-800;
+    transform: scale(.9);
+  }
+}
 .card {
   padding: 2em;
 }

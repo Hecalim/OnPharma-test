@@ -43,10 +43,10 @@ export default {
   data() {
     return {
       tabs: [
-        { name: 'Search', iconClass: 'search-icon' },
-        { name: 'Messages', iconClass: 'message-icon' },
-        { name: 'Notifications', iconClass: 'notification-icon' },
-        { name: 'Account', iconClass: 'account-icon' }
+        { name: 'Search', iconClass: 'fa-search' },
+        { name: 'Messages', iconClass: 'fa-message' },
+        { name: 'Notifications', iconClass: 'fa-bell' },
+        { name: 'Account', iconClass: 'fa-user' }
       ],
       activeTab: 0,  // Tab 1 is active
 

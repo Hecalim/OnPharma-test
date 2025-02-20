@@ -4,7 +4,7 @@
       @click="handleClick"
       :class="['nav-item', { 'nav-item__active': isActive }]"
     >
-      <i class="fa" :class="iconClass"></i>
+      <i class="fa  text-xl" :class="[iconClass, isActive ? 'text-gray-100': 'text-gray-800']"></i>
       <span>{{ name }}</span>
     </button>
   </template>
@@ -28,7 +28,7 @@
   .nav-item {
     @apply bg-transparent grow shrink basis-0 cursor-pointer flex flex-col items-center justify-center;
     i{
-        @apply flex items-center justify-center w-[40px] aspect-square rounded-full;
+        @apply flex items-center justify-center w-[48px] aspect-square rounded-full;
     }
     span{
         @apply text-gray-400 text-sm font-medium;
