@@ -11,42 +11,15 @@ function changeTab(tab) {
 }
 </script>
 
+
 <template>
-  <main class="tabs relative" style="height: 100dvh; background-color: red; width: inherit;">
-    
-    <!-- Tab Navigation -->
-    <nav class="flex relative" style="position: fixed; bottom: 0; width: inherit;">
-      <button
-        type="button"
-        v-for="(tab, index) in tabs"
-        :key="tab.name"
-        @click="setActiveTab(index)"
-        ref="tabs"  
-        :class="{
-          'text-blue-600': activeTab === index,
-          'text-gray-500': activeTab !== index
-        }"
-        class="grow shrink basis-0 cursor-pointer pb-2 transition-colors"
-      >
-        {{ tab.name }}
-      </button>
-
-      <!-- Dynamic underline -->
-      <div
-        class="absolute bottom-0 left-0 h-0.5 bg-blue-600 transition-all"
-        :style="{
-          width: tabWidth + 'px',
-          left: tabLeft + 'px'
-        }"
-      ></div>
-    </nav>
-
-    <!-- Tab Content -->
-    <section class="tab-content mt-4 p-4" style="min-height:800px;">
-        <Tab1 v-if="activeTab === 0" />
-        <Tab2 v-if="activeTab === 1" />
-        <Tab3 v-if="activeTab === 2" />
-        <Tab4 v-if="activeTab === 3" />
+  <main class="tabs relative flex flex-col items-stretch h-[100dvh] w-[inherit] bg-white gap-y-4">
+    <MainNav :tabs="tabs" :activeTab="activeTab" @updateActiveTab="setActiveTab" />
+    <section class="tab-content contents mt-4 p-4">
+      <Tab1 v-if="activeTab === 0" />
+      <Tab2 v-if="activeTab === 1" />
+      <Tab3 v-if="activeTab === 2" />
+      <Tab4 v-if="activeTab === 3" />
     </section>
   </main>
 </template>
@@ -56,39 +29,47 @@ import Tab1 from './components/Tab1.vue';
 import Tab2 from './components/Tab2.vue';
 import Tab3 from './components/Tab3.vue';
 import Tab4 from './components/Tab4.vue';
+import MainNav from './components/MainNav.vue';
+
 
 export default {
   components: {
     Tab1,
     Tab2,
     Tab3,
-    Tab4
+    Tab4,
+    MainNav
   },
   data() {
     return {
       tabs: [
-        { name: 'Tab 1' },
-        { name: 'Tab 2' },
-        { name: 'Tab 3' },
-        { name: 'Tab 4' }
+        { name: 'Search', iconClass: 'search-icon' },
+        { name: 'Messages', iconClass: 'message-icon' },
+        { name: 'Notifications', iconClass: 'notification-icon' },
+        { name: 'Account', iconClass: 'account-icon' }
       ],
-      activeTab: 0,  // Tab 1 active par défaut
+      activeTab: 0,  // Tab 1 is active
+
+      /* Abandonned idea, underline active tab
       tabWidth: 0,
-      tabLeft: 0
+      tabLeft: 0 */
     };
   },
   mounted() {
-    this.updateUnderlinePosition(); // Met à jour la position à la montée du composant
+    // Abandonned 
+    // this.updateUnderlinePosition(); 
   },
   watch: {
+    /* Abandonned
     activeTab() {
       this.updateUnderlinePosition(); // Met à jour la position quand activeTab change
-    }
+    } */
   },
   methods: {
     setActiveTab(index) {
       this.activeTab = index;
-    },
+      },
+    /* Abandonned
     updateUnderlinePosition() {
       // Utiliser $nextTick pour s'assurer que le DOM est mis à jour
       this.$nextTick(() => {
@@ -101,7 +82,7 @@ export default {
           this.tabLeft = tabElement.offsetLeft;
         }
       });
-    }
+    } */
   }
 };
 </script>
@@ -111,10 +92,13 @@ export default {
 </style>
 
 <style>
-.container {
-  max-width: 600px;
-}
-.tab-content div {
-  transition: all 0.3s ease-in-out;
+main{
+  aspect-ratio: 9/16;
+  padding: 16px;
+  padding-top: 48px;
+  border-radius: 36px;
+  width: clamp(120px, 100vw, 480px);
+  margin: 0 auto;
+  text-align: center;
 }
 </style>

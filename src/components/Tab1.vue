@@ -5,13 +5,18 @@ import { useTabStore } from '../store/store';
 const store = useTabStore();
 </script>
 
-<template style="min-height: 800px">
-    <h2 class="text-xl font-bold mb-4">Formulaire 1</h2>
-    <label class="block mb-2">Nom :</label>
-    <input v-model="store.formData.tab1.name" class="border p-2 w-full mb-4" placeholder="Entrez votre nom">
-
-    <label class="block mb-2">Email :</label>
-    <input v-model="store.formData.tab1.email" class="border p-2 w-full" placeholder="Entrez votre email">
+<template class="grow shrink basis-0">
+    <h2 class="main-title">Search</h2>
+    <label for="search" class="input flex flex-row p-0">
+      <i ></i>
+      <input type="search" name="" id="" class="grow">
+    </label>
+    <div class="flex flex-row items-start justify-between w-[80%] mx-auto">
+      <button type="button" class="aspect-square"></button>
+      <button type="button" class="aspect-square"></button>
+      <button type="button" class="aspect-square"></button>
+      <button type="button" class="aspect-square"></button>
+    </div>
 </template>
 
 

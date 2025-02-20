@@ -7,12 +7,16 @@ const store = useTabStore();
 </script>
 
 <template>
-    <h2 class="text-xl font-bold mb-4">Formulaire 3</h2>
-    <label class="block mb-2">Adresse :</label>
-    <input v-model="store.formData.tab3.address" class="border p-2 w-full mb-4" placeholder="Entrez votre adresse">
-
-    <label class="block mb-2">Téléphone :</label>
-    <input v-model="store.formData.tab3.phone" class="border p-2 w-full" placeholder="Entrez votre téléphone">
+  <h2 class="main-title">Notifications</h2>
+  <div class="flex flex-row items-center justify-between mt-4">
+    <span class="sub-title" for="switch">
+      Enable notifications
+    </span>
+    <label class="switch">
+      <input type="checkbox" name="switch" id="switch">
+      <span></span>
+    </label>
+  </div>
 </template>
 
 <script>
