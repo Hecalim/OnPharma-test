@@ -1,16 +1,14 @@
 <!-- Tab1.vue -->
 <script setup>
 import { useTabStore } from '../store/store';
+import SearchInput from './SearchInput.vue';
 
 const store = useTabStore();
 </script>
 
 <template class="grow shrink basis-0">
     <h2 class="main-title">Search</h2>
-    <label for="search" class="input flex flex-row items-center justify-start gap-x-4 p-0">
-      <i class="fa-solid fa-search"></i>
-      <input type="search" name="search" id="search" class="grow bg-transparent">
-    </label>
+    <SearchInput icon="fa-solid fa-search" v-model="store.formData.tab1.search"/>
     <div class="flex flex-row items-start justify-between w-[80%] mx-auto">
       <button type="button" class="btn w-[48px]">
         <i class="fa fa-bell"></i>

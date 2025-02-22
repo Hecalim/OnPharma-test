@@ -6,7 +6,7 @@ export const useTabStore = defineStore('tabStore', {
     activeTab: 'tab1',
     scrollPositions: { tab1: 0, tab2: 0, tab3: 0, tab4: 0 },
     formData: {
-      tab1: { },
+      tab1: { search: ''},
       tab2: { },
       tab3: { checkbox: false},
       tab4: { firstname: '', lastname: '', email: '', phone: '', contractName:''}
